@@ -9,7 +9,10 @@ var concat = require("gulp-concat");
 gulp.task("build-components", function () {
     return gulp.src("components/**/*.js")
       .pipe(babel())
-      .pipe(gulp.dest("dist"));
+      .pipe(gulp.dest("dist"))
+      .pipe(browserSync.reload({
+        stream: true
+    }))
 });
 
 gulp.task('check-sass', function() {
@@ -35,14 +38,15 @@ gulp.task('sass', function() {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'src'
+      baseDir: './'
     },
   })
 });
 
 gulp.task('build', ['build-components', 'sass']);
 
-gulp.task('watch', ['browserSync', 'sass'], function (){
+gulp.task('watch', ['browserSync', 'build-components', 'sass'], function (){
   	gulp.watch('components/**/*.scss', ['check-sass', 'sass']);
+    gulp.watch('components/**/*.js', ['build-components']);
 });
 
