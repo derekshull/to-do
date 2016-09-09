@@ -18,7 +18,11 @@ class todoList extends HTMLElement {
 		if (!oldValue) {
 			for (var i in items) {
 				this.querySelector('#todoListItems').innerHTML += `
-					<div class="todoItem">${items[i].name}</div>
+					<div class="todoItem">
+						${items[i].name}
+						<button class="complete">Complete</button>
+						<button class="remove">Remove</button>
+					</div>
 				`;
 			}
 		}
@@ -26,7 +30,13 @@ class todoList extends HTMLElement {
 			let todoListItems = this.querySelector('#todoListItems');
 			for (var i in items) {
 				let theKid = document.createElement("div");
-				theKid.innerHTML = `<div class="todoItem">${items[i].name}</div>`;
+				theKid.innerHTML = `
+					<div class="todoItem">
+						${items[i].name}
+						<button class="complete">Complete</button>
+						<button class="remove">Remove</button>
+					</div>
+				`;
 				todoListItems.insertBefore(theKid, todoListItems.firstChild);
 			}
 		}

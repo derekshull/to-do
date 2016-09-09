@@ -1,5 +1,4 @@
-todo-input {
-	input {
-		border: 1px solid red;
-	}
+@import '../general.scss';
+input {
+	border: 2px solid $red;
 }

@@ -5,11 +5,12 @@ class todoInput extends HTMLElement {
 		super();
 	} 
 	createdCallback() {
-		this.innerHTML = `
-			<p>
-				<input type="text" id="todoText"> <button id="submit">Send</button>
+		this.createShadowRoot().innerHTML = `
+      		<!-- inject-style src="./build/todo-input/todo-input.css" -->
+      		<p>
+				<input type="text" id="todoText" autofocus> <button id="submit">Send</button>
 			</p>
-		`;
+    	`;
 		var input = this.querySelector('input');
 		var btn = this.querySelector('button');
         btn.addEventListener('click',() => this.updateList(input));
