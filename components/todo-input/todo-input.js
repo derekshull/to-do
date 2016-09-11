@@ -1,4 +1,3 @@
-"use strict";
 class todoInput extends HTMLElement {
 
 	constructor() {
@@ -6,13 +5,13 @@ class todoInput extends HTMLElement {
 	} 
 	createdCallback() {
 		this.createShadowRoot().innerHTML = `
-      		<!-- inject-style src="./build/todo-input/todo-input.css" -->
+      		<!-- inject-style src="./processing/todo-input/todo-input.css" -->
       		<p>
-				<input type="text" id="todoText" autofocus> <button id="submit">Send</button>
+				<input type="text" id="todoText" autofocus> <todo-button>Send</todo-button>
 			</p>
     	`;
-		var input = this.querySelector('input');
-		var btn = this.querySelector('button');
+		var input = this.shadowRoot.querySelector('input');
+		var btn = this.shadowRoot.querySelector('todo-button');
         btn.addEventListener('click',() => this.updateList(input));
 	}
 
