@@ -5,13 +5,11 @@ class todoButton extends HTMLElement {
 	} 
 	createdCallback() {
 		this.createShadowRoot().innerHTML = `
-      		<!-- inject-style src="./processing/todo-button/todo-button.css" -->
-      		<div id="container">
-      			<button>
-      				<content></content>
-      			</button>
-      		</div>
-    	`;
+			<!-- inject-style src="./processing/todo-button/todo-button.css" -->
+			<button>
+				<content></content>
+			</button>
+		`;
 	}
 }
 

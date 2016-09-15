@@ -17,8 +17,15 @@ gulp.task('change-css', function() {
     .pipe(gulp.dest('processing'))
 });
 
-gulp.task('inject', ['change-css'], function() {
-  return gulp.src('components/**/*.js') // Gets all files ending with .scss
+gulp.task('build-css', function() {
+  return gulp.src('components/styles.scss') // Gets all files ending with .scss
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('dist'))
+});
+
+gulp.task('inject', ['change-css', 'build-css'], function() {
+  return gulp.src('components/**/*.js') // Gets all files ending with .js
     .pipe(styleInject())
     .pipe(gulp.dest('processing'))
 });
