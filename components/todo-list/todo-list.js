@@ -11,6 +11,13 @@ class todoList extends HTMLElement {
 			</p>
 		`;
 	}
+
+	attachedCallback() {
+		if (window.WebComponents && WebComponents.ShadowCSS) {
+	        WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'todo-list');
+	    }
+	}
+
 	attributeChangedCallback(json, oldValue, newValue) {
 		var items = JSON.parse(newValue);
 

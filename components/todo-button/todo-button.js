@@ -2,6 +2,8 @@ class todoButton extends HTMLElement {
 
 	constructor() {
 		super();
+		document.addEventListener('touchstart', this.className += "hover");
+	    document.addEventListener('touchend', this.className.className.replace(/\bhover\b/,''));
 	} 
 	createdCallback() {
 		this.createShadowRoot().innerHTML = `
