@@ -11,6 +11,12 @@ class todoButton extends HTMLElement {
 			</button>
 		`;
 	}
+
+	attachedCallback() {
+		if (window.WebComponents && WebComponents.ShadowCSS) {
+	        WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'todo-button');
+	    }
+	}
 }
 
 var myTodoButton = document.registerElement("todo-button", todoButton);

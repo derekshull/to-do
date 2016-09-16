@@ -22,6 +22,13 @@ var todoButton = function (_HTMLElement) {
 		value: function createdCallback() {
 			this.createShadowRoot().innerHTML = '\n\t\t\t<style>\n:host {\n  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n  background: #b7121f;\n  border: 4px solid #eb8991;\n  border-radius: 10px;\n  contain: content;\n  cursor: pointer;\n  display: inline-block;\n  padding: 6px 14px;\n  -webkit-transition: box-shadow 0.1s;\n  transition: box-shadow 0.1s; }\n\n:host(:hover) {\n  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21); }\n\n:host(:active) {\n  box-shadow: none; }\n\nbutton {\n  background: #b7121f;\n  border: 0px;\n  border-radius: 10px;\n  color: white;\n  cursor: pointer;\n  font-size: 14px; }\n\n</style>\n\t\t\t<button>\n\t\t\t\t<content></content>\n\t\t\t</button>\n\t\t';
 		}
+	}, {
+		key: 'attachedCallback',
+		value: function attachedCallback() {
+			if (window.WebComponents && WebComponents.ShadowCSS) {
+				WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'todo-button');
+			}
+		}
 	}]);
 
 	return todoButton;
