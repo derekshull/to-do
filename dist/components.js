@@ -14,17 +14,13 @@ var todoButton = function (_HTMLElement) {
 	function todoButton() {
 		_classCallCheck(this, todoButton);
 
-		var _this = _possibleConstructorReturn(this, (todoButton.__proto__ || Object.getPrototypeOf(todoButton)).call(this));
-
-		document.addEventListener('touchstart', _this.className += "hover");
-		document.addEventListener('touchend', _this.className.className.replace(/\bhover\b/, ''));
-		return _this;
+		return _possibleConstructorReturn(this, (todoButton.__proto__ || Object.getPrototypeOf(todoButton)).call(this));
 	}
 
 	_createClass(todoButton, [{
 		key: 'createdCallback',
 		value: function createdCallback() {
-			this.createShadowRoot().innerHTML = '\n\t\t\t<style>\n:host {\n  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n  background: #b7121f;\n  border: 4px solid #eb8991;\n  border-radius: 10px;\n  contain: content;\n  cursor: pointer;\n  display: inline-block;\n  padding: 6px 14px;\n  -webkit-transition: box-shadow 0.1s;\n  transition: box-shadow 0.1s; }\n\n@media screen and (min-width: 768px) {\n  :host(:hover) {\n    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21); } }\n\n:host(:active) {\n  box-shadow: none; }\n\nbutton {\n  background: #b7121f;\n  border: 0px;\n  border-radius: 10px;\n  color: white;\n  cursor: pointer;\n  font-size: 14px; }\n\n</style>\n\t\t\t<button>\n\t\t\t\t<content></content>\n\t\t\t</button>\n\t\t';
+			this.createShadowRoot().innerHTML = '\n\t\t\t<style>\nbutton {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */\n  overflow: visible;\n  text-transform: none;\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */ }\n\nbutton[disabled] {\n  cursor: default;\n  outline: none; }\n\nbutton::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\n:host {\n  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n  background: #b7121f;\n  border: 4px solid #eb8991;\n  border-radius: 10px;\n  contain: content;\n  cursor: pointer;\n  display: inline-block;\n  padding: 6px 14px;\n  -webkit-transition: box-shadow 0.1s;\n  transition: box-shadow 0.1s; }\n\n@media screen and (min-width: 768px) {\n  :host(:hover) {\n    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21); } }\n\n:host(:active) {\n  box-shadow: none; }\n\nbutton {\n  background: #b7121f;\n  border: 0px;\n  border-radius: 10px;\n  color: white;\n  cursor: pointer;\n  font-size: 14px; }\n\nbutton:focus {\n  outline-color: #fff;\n  outline-style: dashed;\n  outline-width: 1px; }\n\n</style>\n\t\t\t<button>\n\t\t\t\t<content></content>\n\t\t\t</button>\n\t\t';
 		}
 	}, {
 		key: 'attachedCallback',
@@ -54,7 +50,7 @@ var todoInput = function (_HTMLElement2) {
 		value: function createdCallback() {
 			var _this3 = this;
 
-			this.createShadowRoot().innerHTML = '\n      \t\t<style>\n\n</style>\n      \t\t<p>\n\t\t\t\t<input type="text" id="todoText" autofocus> <todo-button>Send</todo-button>\n\t\t\t</p>\n    \t';
+			this.createShadowRoot().innerHTML = '\n      \t\t<style>\ninput {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */\n  line-height: normal; }\n\nhtml input[type="button"],\ninput[type="reset"],\ninput[type="submit"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */ }\n\nhtml input[disabled] {\n  cursor: default; }\n\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0; }\n\ninput[type="checkbox"],\ninput[type="radio"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\ninput[type="number"]::-webkit-inner-spin-button,\ninput[type="number"]::-webkit-outer-spin-button {\n  height: auto; }\n\ninput[type="search"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  box-sizing: content-box;\n  /* 2 */ }\n\ninput[type="search"]::-webkit-search-cancel-button,\ninput[type="search"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n</style>\n      \t\t<p>\n\t\t\t\t<input type="text" id="todoText" autofocus> <todo-button>Send</todo-button>\n\t\t\t</p>\n    \t';
 			var input = this.shadowRoot.querySelector('input');
 			var btn = this.shadowRoot.querySelector('todo-button');
 			btn.addEventListener('click', function () {
