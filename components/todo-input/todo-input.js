@@ -15,6 +15,12 @@ class todoInput extends HTMLElement {
         btn.addEventListener('click',() => this.updateList(input));
 	}
 
+	attachedCallback() {
+		if (window.WebComponents && WebComponents.ShadowCSS) {
+	        WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'todo-input');
+	    }
+	}
+
   	updateList(input) {
 	    document.querySelector("todo-list").setAttribute("json", '[{"id": 0, "name": "'+input.value+'"}]');
        	input.value = "";

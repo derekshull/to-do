@@ -12,8 +12,11 @@
 	transition: box-shadow 0.1s;
 }
 
-:host(:hover) {
-	@include z4();
+@media screen and (min-width: $break-medium) {
+	// Only do hover on desktop since mobile devices don't support hover.
+	:host(:hover) {
+		@include z4();
+	}
 }
 
 :host(:active) {
