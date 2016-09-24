@@ -193,5 +193,9 @@ th {
 html, body {
   height: 100%; }
 
-body {
-  background: #b7121f; }
+header {
+  background: #b7121f;
+  padding: 20px; }
+
+section {
+  padding: 20px; }
