@@ -56,7 +56,7 @@ var arisButton = function (_HTMLElement) {
     key: 'attachedCallback',
     value: function attachedCallback() {
       if (window.WebComponents && WebComponents.ShadowCSS) {
-        WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'todo-button');
+        WebComponents.ShadowCSS.shimStyling(this.shadowRoot, 'aris-button');
       }
 
       var btn = this.shadowRoot.querySelector('button');
